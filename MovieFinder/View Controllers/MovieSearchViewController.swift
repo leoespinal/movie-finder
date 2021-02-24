@@ -94,7 +94,6 @@ class MovieSearchViewController: UIViewController {
 	
 	private func setupSearchBar() {
 		searchBar.placeholder = "Enter movie title"
-		searchBar.prompt = "Movie Finder"
 		searchBar.showsSearchResultsButton = true
 		searchBar.returnKeyType = .done
 	}
