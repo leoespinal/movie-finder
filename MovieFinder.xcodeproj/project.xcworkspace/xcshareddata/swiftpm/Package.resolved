@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "RxGesture",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxGesture.git",
+        "state": {
+          "branch": null,
+          "revision": "54af729415f65f9cf2ed03063a3fb9b095a2f0ed",
+          "version": "4.0.1"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {

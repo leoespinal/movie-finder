@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		85B351EA25E5DA5F00D760FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B351E925E5DA5F00D760FB /* AppDelegate.swift */; };
 		85B351EC25E5DA5F00D760FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B351EB25E5DA5F00D760FB /* SceneDelegate.swift */; };
-		85B351EE25E5DA5F00D760FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B351ED25E5DA5F00D760FB /* ViewController.swift */; };
+		85B351EE25E5DA5F00D760FB /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B351ED25E5DA5F00D760FB /* MovieSearchViewController.swift */; };
 		85B351F125E5DA5F00D760FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B351EF25E5DA5F00D760FB /* Main.storyboard */; };
 		85B351F325E5DA5F00D760FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B351F225E5DA5F00D760FB /* Assets.xcassets */; };
 		85B351F625E5DA5F00D760FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B351F425E5DA5F00D760FB /* LaunchScreen.storyboard */; };
@@ -22,6 +22,8 @@
 		85B3524425E5DD1000D760FB /* MovieFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3524325E5DD1000D760FB /* MovieFetchable.swift */; };
 		85B3524925E5DD2B00D760FB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3524825E5DD2B00D760FB /* Movie.swift */; };
 		85B3524E25E5DD5A00D760FB /* MovieRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3524D25E5DD5A00D760FB /* MovieRequestService.swift */; };
+		85B3525C25E5E03800D760FB /* MovieSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3525B25E5E03800D760FB /* MovieSearchViewModel.swift */; };
+		85B3526225E6736F00D760FB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 85B3526125E6736F00D760FB /* RxGesture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,7 @@
 		85B351E625E5DA5F00D760FB /* MovieFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B351E925E5DA5F00D760FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85B351EB25E5DA5F00D760FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		85B351ED25E5DA5F00D760FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		85B351ED25E5DA5F00D760FB /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		85B351F025E5DA5F00D760FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85B351F225E5DA5F00D760FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85B351F525E5DA5F00D760FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		85B3524325E5DD1000D760FB /* MovieFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFetchable.swift; sourceTree = "<group>"; };
 		85B3524825E5DD2B00D760FB /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		85B3524D25E5DD5A00D760FB /* MovieRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequestService.swift; sourceTree = "<group>"; };
+		85B3525B25E5E03800D760FB /* MovieSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			files = (
 				85B3523D25E5DCA300D760FB /* RxSwift in Frameworks */,
 				85B3523B25E5DCA300D760FB /* RxCocoa in Frameworks */,
+				85B3526225E6736F00D760FB /* RxGesture in Frameworks */,
 				85B3523F25E5DCA300D760FB /* RxRelay in Frameworks */,
 				85B3523225E5DB9100D760FB /* Kingfisher in Frameworks */,
 			);
@@ -182,6 +186,7 @@
 		85B3522025E5DA9700D760FB /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				85B3525B25E5E03800D760FB /* MovieSearchViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -189,7 +194,7 @@
 		85B3522125E5DAA800D760FB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85B351ED25E5DA5F00D760FB /* ViewController.swift */,
+				85B351ED25E5DA5F00D760FB /* MovieSearchViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				85B3523A25E5DCA300D760FB /* RxCocoa */,
 				85B3523C25E5DCA300D760FB /* RxSwift */,
 				85B3523E25E5DCA300D760FB /* RxRelay */,
+				85B3526125E6736F00D760FB /* RxGesture */,
 			);
 			productName = MovieFinder;
 			productReference = 85B351E625E5DA5F00D760FB /* MovieFinder.app */;
@@ -305,6 +311,7 @@
 			packageReferences = (
 				85B3523025E5DB9100D760FB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				85B3526025E6736F00D760FB /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = 85B351E725E5DA5F00D760FB /* Products */;
 			projectDirPath = "";
@@ -349,7 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85B351EE25E5DA5F00D760FB /* ViewController.swift in Sources */,
+				85B351EE25E5DA5F00D760FB /* MovieSearchViewController.swift in Sources */,
+				85B3525C25E5E03800D760FB /* MovieSearchViewModel.swift in Sources */,
 				85B3524425E5DD1000D760FB /* MovieFetchable.swift in Sources */,
 				85B3524E25E5DD5A00D760FB /* MovieRequestService.swift in Sources */,
 				85B351EA25E5DA5F00D760FB /* AppDelegate.swift in Sources */,
@@ -705,6 +713,14 @@
 				minimumVersion = 6.1.0;
 			};
 		};
+		85B3526025E6736F00D760FB /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -727,6 +743,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		85B3526125E6736F00D760FB /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B3526025E6736F00D760FB /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
