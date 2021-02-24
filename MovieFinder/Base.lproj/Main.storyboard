@@ -106,9 +106,9 @@
                         <constraints>
                             <constraint firstItem="DWB-ra-ZI1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0fs-VX-lD2"/>
                             <constraint firstItem="DWB-ra-ZI1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" priority="250" id="NkW-p2-PXy"/>
-                            <constraint firstItem="1cz-gt-91I" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wmu-HE-gFI"/>
+                            <constraint firstItem="1cz-gt-91I" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Wmu-HE-gFI"/>
                             <constraint firstItem="1cz-gt-91I" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fPM-aa-mxB"/>
-                            <constraint firstItem="1cz-gt-91I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tBk-uQ-OHv"/>
+                            <constraint firstItem="1cz-gt-91I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tBk-uQ-OHv"/>
                             <constraint firstAttribute="bottom" secondItem="1cz-gt-91I" secondAttribute="bottom" id="yjE-aA-mnG"/>
                         </constraints>
                     </view>

@@ -80,6 +80,7 @@ class MovieRequestService: MovieFetchable {
 					} catch {
 						observer.onNext(.failure(MovieRequestError.failedToDecodeMovie(error)))
 					}
+					observer.onCompleted()
 				}
 				
 				task.resume()

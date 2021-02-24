@@ -8,16 +8,23 @@
 import Foundation
 
 struct Movie: Decodable {
-	let title: String?
-	let posterURL: String?
-	let rating: String?
-	let errorMessage: String?
+	var title: String?
+	var posterURL: String?
+	var rating: String?
+	var errorMessage: String?
 	
 	enum MovieCodingKeys: String, CodingKey {
 		case title = "Title"
 		case poster = "Poster"
 		case rating = "imdbRating"
 		case error = "Error"
+	}
+	
+	init(title: String?, posterURL: String?, rating: String?, errorMessage: String?) {
+		self.title = title
+		self.posterURL = posterURL
+		self.rating = rating
+		self.errorMessage = errorMessage
 	}
 	
 	init(from decoder: Decoder) throws {

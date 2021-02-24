@@ -54,7 +54,9 @@ class MovieSearchViewController: UIViewController {
 			.disposed(by: disposeBag)
 		
 		viewModel.output.movieRating
-			.drive(movieRatingLabel.rx.text)
+			.subscribe { [weak self] rating in
+				self?.movieRatingLabel.text = rating
+			}
 			.disposed(by: disposeBag)
 		
 		viewModel.output.errorMessage
@@ -99,7 +101,7 @@ class MovieSearchViewController: UIViewController {
 	}
 	
 	private func setupLabels() {
-		errorMessageLabel.text = ""
+		errorMessageLabel.text = "Start searching for some movies"
 		movieTitleLabel.text = ""
 		movieRatingLabel.text = ""
 	}

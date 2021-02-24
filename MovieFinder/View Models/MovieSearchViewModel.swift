@@ -9,16 +9,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct MovieSearchViewModel {
+struct MovieSearchViewModel: ViewModel {
 	struct Input {
 		let movieTitle: AnyObserver<String?>
 	}
 	
 	struct Output {
 		let movie: Driver<Movie?>
-		let errorMessage: Driver<String?>
+		let errorMessage: Driver<String>
 		let shouldShowMessage: Observable<Bool>
-		let movieRating: Driver<String?>
+		let movieRating: Observable<String>
 	}
 	
 	let input: Input
@@ -37,23 +37,12 @@ struct MovieSearchViewModel {
 					!movieTitle.isEmpty
 				else { return .just(nil) }
 				return movieService.searchMovies(for: movieTitle)
-					.map { result -> Movie? in
-						switch result {
-						case .success(let movie):
-							// Some movie titles would appear without ratings or a poster image
-							// Filtering these out to provide a better user experience
-							// TODO: Come back to this
-							//guard movie.posterURL != nil, movie.rating != nil else { return nil }
-							return movie
-						case .failure:
-							return nil
-						}
-					}
+					.map { $0.successValue }
 			}
 			.asDriver(onErrorJustReturn: nil)
 		
 		let movieRating = movie
-			.map { movie -> String? in
+			.compactMap { movie -> String? in
 				guard
 					let rating = movie?.rating,
 					let ratingValue = Double(rating)
@@ -66,10 +55,10 @@ struct MovieSearchViewModel {
 					starRating += "⭐️"
 				}
 				return starRating
-			}
+			}.asObservable()
 		
 		let emptyStateMessage = movieTitleSubject
-			.map { title -> String? in
+			.compactMap { title -> String? in
 				guard
 					let title = title,
 					title.isEmpty
@@ -78,20 +67,21 @@ struct MovieSearchViewModel {
 			}
 		
 		let errorMessage = movie
-			.map { movie -> String? in
+			.compactMap { movie -> String? in
 				guard let movie = movie else { return nil }
 				return movie.errorMessage
 			}
 		
 		let message = Observable.merge(emptyStateMessage, errorMessage.asObservable())
+			.asDriver(onErrorJustReturn: "")
 		
-		let shouldShowMessage = Observable.combineLatest(message, movie.asObservable())
-			.map { message, movie -> Bool in
-				return (movie == nil || movie?.errorMessage != nil) && message != nil
-			}
+		let shouldShowMessage = movie
+			.map { movie -> Bool in
+				return movie == nil || movie?.errorMessage != nil
+			}.asObservable()
 		
 		output = Output(movie: movie,
-						errorMessage: message.startWith("Start searching for some movies").asDriver(onErrorJustReturn: nil),
+						errorMessage: message,
 						shouldShowMessage: shouldShowMessage.startWith(true),
 						movieRating: movieRating)
 	}
