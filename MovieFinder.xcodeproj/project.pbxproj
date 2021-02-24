@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		85B351F625E5DA5F00D760FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B351F425E5DA5F00D760FB /* LaunchScreen.storyboard */; };
 		85B3520125E5DA6000D760FB /* MovieFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3520025E5DA6000D760FB /* MovieFinderTests.swift */; };
 		85B3520C25E5DA6000D760FB /* MovieFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3520B25E5DA6000D760FB /* MovieFinderUITests.swift */; };
+		85B3523225E5DB9100D760FB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 85B3523125E5DB9100D760FB /* Kingfisher */; };
+		85B3523B25E5DCA300D760FB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 85B3523A25E5DCA300D760FB /* RxCocoa */; };
+		85B3523D25E5DCA300D760FB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 85B3523C25E5DCA300D760FB /* RxSwift */; };
+		85B3523F25E5DCA300D760FB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 85B3523E25E5DCA300D760FB /* RxRelay */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B3523D25E5DCA300D760FB /* RxSwift in Frameworks */,
+				85B3523B25E5DCA300D760FB /* RxCocoa in Frameworks */,
+				85B3523F25E5DCA300D760FB /* RxRelay in Frameworks */,
+				85B3523225E5DB9100D760FB /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +107,17 @@
 		85B351E825E5DA5F00D760FB /* MovieFinder */ = {
 			isa = PBXGroup;
 			children = (
+				85B3521D25E5DA7800D760FB /* Services */,
+				85B3521C25E5DA7000D760FB /* Protocols */,
+				85B3522225E5DAB500D760FB /* Views */,
+				85B3522125E5DAA800D760FB /* View Controllers */,
+				85B3522025E5DA9700D760FB /* View Models */,
+				85B3521F25E5DA8C00D760FB /* Models */,
+				85B3521E25E5DA8200D760FB /* Extensions */,
 				85B351E925E5DA5F00D760FB /* AppDelegate.swift */,
 				85B351EB25E5DA5F00D760FB /* SceneDelegate.swift */,
-				85B351ED25E5DA5F00D760FB /* ViewController.swift */,
+				85B3522325E5DAFA00D760FB /* Resources */,
 				85B351EF25E5DA5F00D760FB /* Main.storyboard */,
-				85B351F225E5DA5F00D760FB /* Assets.xcassets */,
 				85B351F425E5DA5F00D760FB /* LaunchScreen.storyboard */,
 				85B351F725E5DA5F00D760FB /* Info.plist */,
 			);
@@ -128,6 +142,64 @@
 			path = MovieFinderUITests;
 			sourceTree = "<group>";
 		};
+		85B3521C25E5DA7000D760FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		85B3521D25E5DA7800D760FB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		85B3521E25E5DA8200D760FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85B3521F25E5DA8C00D760FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85B3522025E5DA9700D760FB /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		85B3522125E5DAA800D760FB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85B351ED25E5DA5F00D760FB /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		85B3522225E5DAB500D760FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		85B3522325E5DAFA00D760FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85B351F225E5DA5F00D760FB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +216,12 @@
 			dependencies = (
 			);
 			name = MovieFinder;
+			packageProductDependencies = (
+				85B3523125E5DB9100D760FB /* Kingfisher */,
+				85B3523A25E5DCA300D760FB /* RxCocoa */,
+				85B3523C25E5DCA300D760FB /* RxSwift */,
+				85B3523E25E5DCA300D760FB /* RxRelay */,
+			);
 			productName = MovieFinder;
 			productReference = 85B351E625E5DA5F00D760FB /* MovieFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +293,10 @@
 				Base,
 			);
 			mainGroup = 85B351DD25E5DA5F00D760FB;
+			packageReferences = (
+				85B3523025E5DB9100D760FB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 85B351E725E5DA5F00D760FB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -593,6 +675,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85B3523025E5DB9100D760FB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
+		85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85B3523125E5DB9100D760FB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B3523025E5DB9100D760FB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		85B3523A25E5DCA300D760FB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		85B3523C25E5DCA300D760FB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		85B3523E25E5DCA300D760FB /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B3523925E5DCA300D760FB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85B351DE25E5DA5F00D760FB /* Project object */;
 }
