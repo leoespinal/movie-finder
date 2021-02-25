@@ -54,9 +54,7 @@ class MovieSearchViewController: UIViewController {
 			.disposed(by: disposeBag)
 		
 		viewModel.output.movieRating
-			.subscribe { [weak self] rating in
-				self?.movieRatingLabel.text = rating
-			}
+			.drive(movieRatingLabel.rx.text)
 			.disposed(by: disposeBag)
 		
 		viewModel.output.errorMessage

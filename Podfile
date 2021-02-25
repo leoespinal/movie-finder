@@ -6,9 +6,14 @@ target 'MovieFinder' do
   use_frameworks!
 
   # Pods for MovieFinder
+  pod 'RxSwift', '6.1.0'
+  pod 'RxCocoa', '6.1.0'
+  pod "RxGesture"
+  pod 'Kingfisher', '~> 6.0'
 
   target 'MovieFinderTests' do
     inherit! :search_paths
+    pod 'RxBlocking', '6.1.0'
     pod 'RxTest', '6.1.0'
   end
 

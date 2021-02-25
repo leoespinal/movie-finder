@@ -9,6 +9,7 @@ import XCTest
 import RxTest
 import RxSwift
 import RxCocoa
+import RxBlocking
 @testable import MovieFinder
 
 class MovieSearchViewModelTests: XCTestCase {
@@ -19,28 +20,26 @@ class MovieSearchViewModelTests: XCTestCase {
 
 	override func setUp() {
 		super.setUp()
-		viewModel = MovieSearchViewModel(movieService: mockMovieRequestService)
 		scheduler = TestScheduler(initialClock: 0)
+		viewModel = MovieSearchViewModel(movieService: mockMovieRequestService)
 		disposeBag = DisposeBag()
 	}
 	
     func testSuccessfulRatingConversion() {
+		mockMovieRequestService.mockMovie.rating = "8.1"
+		
 		let movieRating = scheduler.createObserver(String.self)
 
-		viewModel.output.movieRating
-			.bind(to: movieRating)
+		scheduler.createColdObservable([.next(10, "naruto")]).debug("movieTitle", trimOutput: false)
+			.bind(to: viewModel.input.movieTitle)
 			.disposed(by: disposeBag)
 
-		scheduler.createColdObservable([.next(10, "naruto")])
-			.bind(to: viewModel.input.movieTitle)
+		viewModel.output.movieRating.debug("movieRating", trimOutput: false)
+			.drive(movieRating)
 			.disposed(by: disposeBag)
 		
 		scheduler.start()
-		
-		XCTAssertEqual(movieRating.events, [.next(10, "⭐️⭐️⭐️⭐️")])
-    }
 
-	func testFailedRatingConversion() {
-		
-	}
+		XCTAssertRecordedElements(movieRating.events, ["⭐️⭐️⭐️⭐️"])
+    }
 }

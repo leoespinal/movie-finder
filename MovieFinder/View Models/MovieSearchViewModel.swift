@@ -18,7 +18,7 @@ struct MovieSearchViewModel: ViewModel {
 		let movie: Driver<Movie?>
 		let errorMessage: Driver<String>
 		let shouldShowMessage: Observable<Bool>
-		let movieRating: Observable<String>
+		let movieRating: Driver<String>
 	}
 	
 	let input: Input
@@ -55,7 +55,8 @@ struct MovieSearchViewModel: ViewModel {
 					starRating += "⭐️"
 				}
 				return starRating
-			}.asObservable()
+			}
+			.debug("viewModel movieRating", trimOutput: false)
 		
 		let emptyStateMessage = movieTitleSubject
 			.compactMap { title -> String? in

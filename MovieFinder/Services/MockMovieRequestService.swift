@@ -27,8 +27,8 @@ class MockMovieRequestService: MovieFetchable {
 			let task = DispatchWorkItem {
 				self.mockMovie.title = title
 				observer.onNext(.success(self.mockMovie))
+				observer.onCompleted()
 			}
-			observer.onCompleted()
 			
 			DispatchQueue.main.async(execute: task)
 			return Disposables.create { task.cancel() }
